@@ -88,6 +88,32 @@ export const publications = [
 ]
 
 // ----------------------------------------------------------------------------
+//  POSTERS & TALKS  (shown on the Publications page, below the papers)
+//  type: 'poster' | 'talk'   — use [] to hide the whole section
+//  links: any of poster, slides, video, pdf — leave '' to hide
+// ----------------------------------------------------------------------------
+export const presentations = [
+  {
+    title: '[Poster Title]',
+    type: 'poster',
+    event: '[Conference / Symposium Name]',
+    location: '[City]',
+    date: '[Month Year]',
+    summary: '[One or two sentences on what was presented.]',
+    links: { poster: '', slides: '' },
+  },
+  {
+    title: '[Talk Title]',
+    type: 'talk',
+    event: '[Seminar / Workshop Name]',
+    location: '[City]',
+    date: '[Month Year]',
+    summary: '[One or two sentences on what was presented.]',
+    links: { poster: '', slides: '' },
+  },
+]
+
+// ----------------------------------------------------------------------------
 //  PROJECTS  (course projects, shown on the Projects page)
 //  links: any of report (PDF), code, slides — leave '' to hide
 // ----------------------------------------------------------------------------

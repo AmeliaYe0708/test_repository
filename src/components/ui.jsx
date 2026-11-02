@@ -48,6 +48,7 @@ const linkLabels = {
   code: ['Code', 'code'],
   report: ['Report', 'file'],
   slides: ['Slides', 'file'],
+  video: ['Video', 'external'],
   poster: ['Poster', 'file'],
 }
 
@@ -101,6 +102,8 @@ const statusStyles = {
   published: ['Published', 'bg-emerald-50 text-emerald-800 ring-emerald-200'],
   'under-review': ['Under review', 'bg-amber-50 text-amber-800 ring-amber-200'],
   ongoing: ['Ongoing', 'bg-sky-50 text-sky-800 ring-sky-200'],
+  poster: ['Poster', 'bg-violet-50 text-violet-800 ring-violet-200'],
+  talk: ['Talk', 'bg-rose-50 text-rose-800 ring-rose-200'],
 }
 
 function StatusBadge({ status }) {

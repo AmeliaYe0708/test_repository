@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { profile, projects, publications } from '../content.js'
+import { profile, projects, publications, presentations } from '../content.js'
 import { Icon, SectionHeading, asset } from '../components/ui.jsx'
 
 function Headshot() {
@@ -126,8 +126,8 @@ export default function Home() {
           <NavCard
             to="/publications"
             title="Publications"
-            count={`${publications.length}`}
-            description="Papers with the problem, my approach, results, and status, plus links to PDFs and code."
+            count={`${publications.length + presentations.length}`}
+            description="Papers with the problem, my approach, results, and status, plus posters and talks."
           />
           <NavCard
             to="/projects"
