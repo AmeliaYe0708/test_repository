@@ -10,13 +10,13 @@
 export const profile = {
   name: 'Linshan Ye',
   // How your name appears in author lists — it gets bolded on the Publications page.
-  citationName: '[Y. Linshan]',
+  citationName: 'Y. Linshan',
   title: 'Undergraduate Student',
   affiliation: 'Zhili College, Tsinghua University',
-  affiliationUrl: '', // optional link to your department / lab
+  affiliationUrl: 'https://www.zlc.tsinghua.edu.cn/EN/en.htm', // optional link to your department / lab
 
   // Set to 'headshot.jpg' after adding public/headshot.jpg. Leave '' to show initials.
-  headshot: '',
+  headshot: 'headshot.png',
 
   // ONE sentence: who you are as a researcher.
   identity:
@@ -38,7 +38,6 @@ export const profile = {
 
   links: {
     // Replace the placeholders below; set a link to '' to hide that row.
-    googleScholar: 'placeholder',
     orcid: 'https://orcid.org/0009-0005-4991-4684',
     github: 'https://github.com/AmeliaYe0708',
   },
@@ -103,25 +102,46 @@ export const publications = [
 export const presentations = [
   {
     slug: 'poster-1',
-    title: '[Poster Title]',
+    title: 'Phage therapy targeting Eggerthella lenta for depression',
     type: 'poster',
-    event: '[Conference / Symposium Name]',
-    location: '[City]',
-    date: '[Month Year]',
-    summary: '[One or two sentences on what was presented.]',
+    event: 'Tsinghua University 2024 Student Academic Research Promotion Program — Individual Project Mid-term Exchange',
+    location: 'Beijing, China',
+    date: 'October 2024',
+    summary: 'We isolated two phages targeting Eggerthella lenta and characterized their genomes, laying the groundwork for investigating phage-based modulation of the gut microbiome as a potential approach to depression.',
     files: [
-      { label: 'Poster (PDF)', file: 'files/example-poster.pdf' },
+      { label: 'Poster (PDF)', file: 'files/Phage_therapy_targeting_Eggerthella_lenta_for_depression .pdf' },
+    ],
+  },
+  {
+    slug: 'poster-2',
+    title: 'Preparation of analgesic peptide using synthetic biology approaches',
+    type: 'poster',
+    event: 'Tsinghua University 2025 Student Academic Research Promotion Program — Individual Project Mid-term Exchange',
+    location: 'Beijing, China',
+    date: 'October 2025',
+    summary: 'We modified an analgesic peptide and engineered probiotic bacteria for its production and extracellular release, exploring a synthetic biology approach to pain management.',
+    files: [
+      { label: 'Poster (PDF)', file: 'files/L’amour_perdu.pdf' },
     ],
   },
   {
     slug: 'talk-1',
-    title: '[Talk Title]',
+    title: 'DuCon：A Dual-microbe system for vinasse recycling through Conversion to succinate',
     type: 'talk',
-    event: '[Seminar / Workshop Name]',
-    location: '[City]',
-    date: '[Month Year]',
-    summary: '[One or two sentences on what was presented.]',
-    files: [],
+    event: 'iGEM 2025 Jamboree',
+    location: 'Paris, France',
+    date: 'October 2025',
+    summary: 'We designed an innovative dual-microbe system to tackle this issue and produce high-value succinate. This system promises efficient vinasse decomposition while generating a valuable chemical, balancing environmental sustainability with economic benefit.',
+    links: { code: 'https://jamboree.igem.org/2025/schedule/5f25a51e-cd7d-4482-9c59-5da7b57a001b' }
+  },
+  {
+    slug: 'talk-2',
+    title: 'Effects of insect color tropism on flower-visiting behavior',
+    type: 'talk',
+    event: 'Capital Universities Annual Symposium on Biology Field Practice Exchange',
+    location: 'Beijing, China',
+    date: 'December 2024',
+    summary: 'Insects show distinct patterns of flower visitation. We used controlled experiments with flower-colored paper models to explore how color and other factors contribute to these differences.'
   },
 ]
 
@@ -155,7 +175,16 @@ export const projects = [
     problem: '[What problem did the project tackle?]',
     contributions: '[What did you do?]',
     conclusions: '[What did you conclude?]',
-    links: { code: '' },
     files: [],
+  },
+  {
+    slug: 'project-3',
+    title: 'DuCon：A Dual-microbe system for vinasse recycling through Conversion to succinate',
+    course: 'Laboratory of Molecular Biology',
+    term: 'Fall 2025',
+    problem: 'The treatment of Baijiu vinasse, which contains hard-to-degrade carbon sources, is a significant environmental challenge.',
+    contributions: 'I carried out genetic manipulation of acid-tolerant KT 2440 and, as student team and wet-lab leader, supervised wet-lab experiments and wiki writing.',
+    conclusions: 'We designed an innovative dual-microbe system to tackle this issue and produce high-value succinate. This system promises efficient vinasse decomposition while generating a valuable chemical, balancing environmental sustainability with economic benefit.',
+    links: { code: 'https://2025.igem.wiki/tsinghua/' }
   },
 ]
