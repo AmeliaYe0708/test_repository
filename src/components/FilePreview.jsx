@@ -7,11 +7,13 @@ import { Icon, asset } from './ui.jsx'
 //   Image        -> the part of the image that fits the frame (from the top-left corner)
 //   PowerPoint   -> embedded Microsoft Office viewer (only works on the live site,
 //                   because Microsoft's servers need to fetch the file from a public URL)
+//   Markdown/text -> first lines of the file, so notes and code can live next to a PDF
 // Any file can set `preview: 'files/some-image.png'` to use that picture instead.
 // ---------------------------------------------------------------------------
 
 const IMAGE_EXT = ['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg', 'avif']
 const SLIDE_EXT = ['ppt', 'pptx']
+const TEXT_EXT = ['md', 'txt', 'r', 'csv']
 
 const extOf = (path) => path.split(/[?#]/)[0].split('.').pop().toLowerCase()
 const kindOf = (path) => {
@@ -19,6 +21,7 @@ const kindOf = (path) => {
   if (ext === 'pdf') return 'pdf'
   if (IMAGE_EXT.includes(ext)) return 'image'
   if (SLIDE_EXT.includes(ext)) return 'slides'
+  if (TEXT_EXT.includes(ext)) return 'text'
   return 'other'
 }
 // Files in /public are referenced like 'files/paper.pdf'; full URLs are used as-is.
@@ -93,6 +96,41 @@ function PdfFirstPage({ url }) {
   )
 }
 
+function TextPreview({ url }) {
+  const [state, setState] = useState('loading')
+  const [text, setText] = useState('')
+
+  useEffect(() => {
+    let cancelled = false
+    fetch(url)
+      .then((res) => (res.ok ? res.text() : Promise.reject(res.status)))
+      .then((body) => {
+        if (!cancelled) {
+          setText(body)
+          setState('ready')
+        }
+      })
+      .catch(() => {
+        if (!cancelled) setState('error')
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [url])
+
+  if (state === 'error') {
+    return <Placeholder title="Text preview unavailable" note="Use Open or Download below." />
+  }
+  if (state === 'loading') {
+    return <div className="absolute inset-0 animate-pulse bg-stone-100" />
+  }
+  return (
+    <pre className="h-full overflow-auto whitespace-pre-wrap bg-stone-50 p-4 text-left text-xs leading-5 text-stone-700">
+      {text}
+    </pre>
+  )
+}
+
 function SlidesEmbed({ url }) {
   const host = window.location.hostname
   if (host === 'localhost' || host === '127.0.0.1') {
@@ -117,12 +155,14 @@ function Frame({ path, previewPath, label }) {
     return <img src={url} alt={label} loading="lazy" className="h-full w-full object-cover object-left-top" />
   }
   if (kind === 'slides') return <SlidesEmbed url={url} />
+  if (kind === 'text') return <TextPreview url={url} />
   return <Placeholder title={fileName(path)} note="No preview for this file type." />
 }
 
 export default function FilePreview({ label, file, preview }) {
   const url = resolve(file)
-  const interactive = kindOf(preview ?? file) === 'slides' // let people click through slides
+  const kind = kindOf(preview ?? file)
+  const interactive = kind === 'slides' || kind === 'text' // slides and notes need clicks/scroll inside the frame
   const frameClass = 'relative block aspect-[4/3] overflow-hidden border-b border-stone-200 bg-stone-50'
 
   return (

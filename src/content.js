@@ -33,7 +33,7 @@ export const profile = {
   keywords: ['AI for science', 'Biological Data Science', 'AI safety'],
 
   email: 'yls23@mails.tsinghua.edu.cn', // prefer your institutional email
-  cv: 'cv.pdf',
+  cv: 'CV_Linshan_Ye.pdf',
   cvLastUpdated: 'Nov 2026',
 
   links: {
@@ -132,18 +132,19 @@ export const presentations = [
 // ----------------------------------------------------------------------------
 export const projects = [
   {
-    slug: 'project-1',
-    title: '[Course Project Title 1]',
-    course: '[COURSE 101: Course Name]',
-    term: '[Fall 2025]',
-    problem: '[What problem did the project tackle?]',
-    contributions: '[What did you build, implement, or analyze? What was your part in a team?]',
-    conclusions: '[What did you find or learn? Key results or takeaways.]',
-    links: { code: '' },
+    slug: 'box-cox-reaction-order',
+    title: 'Determination of Chemical Reaction Order Using the Box–Cox Transformation',
+    course: 'Physical Chemistry B',
+    term: 'Fall 2025',
+    problem:
+      'Reaction order is often found by trial-and-error linear regression or the half-life method. Those approaches are awkward for non-integer orders and for noisy sampling. This project asks how to identify the order from concentration–time data on statistical grounds.',
+    contributions:
+      'I applied the Box–Cox transformation to three concentration–time series, used the maximising λ as the linearising exponent, and compared first-order, one-and-a-half-order, and second-order kinetics in R.',
+    conclusions:
+      'Box–Cox recovers the kinetic order, including half-integer orders, from the same linear-regression setup used in the conventional method, without a separate search over integer rate laws.',
     files: [
-      { label: 'Final report', file: 'files/example-report.pdf' },
-      { label: 'Presentation slides', file: 'files/example-slides.pptx' },
-      { label: 'Results figure', file: 'files/example-figure.png' },
+      { label: 'Report (PDF)', file: 'files/box-cox-reaction-order.pdf' },
+      { label: 'R code and data', file: 'files/box-cox-reaction-order-code.md' },
     ],
   },
   {
