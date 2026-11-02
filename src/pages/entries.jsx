@@ -5,7 +5,9 @@ import { profile } from '../content.js'
 // so the list pages and the detail pages always show the same card.
 
 // Formal citation line: A. Author, Y. Name, and C. Author. Venue, Year.
-function Citation({ authors, venue, year }) {
+// Any of authors / venue / year may be left out (e.g. for ongoing work).
+function Citation({ authors = [], venue, year }) {
+  const tail = [venue && <em key="v">{venue}</em>, year].filter(Boolean)
   return (
     <>
       {authors.map((a, i) => (
@@ -14,14 +16,23 @@ function Citation({ authors, venue, year }) {
           {i < authors.length - 2 ? ', ' : i === authors.length - 2 ? (authors.length > 2 ? ', and ' : ' and ') : ''}
         </Fragment>
       ))}
-      . <em>{venue}</em>, {year}.
+      {authors.length > 0 && tail.length > 0 && '. '}
+      {tail.map((t, i) => (
+        <Fragment key={i}>
+          {i > 0 && ', '}
+          {t}
+        </Fragment>
+      ))}
+      .
     </>
   )
 }
 
+const hasCitation = (p) => (p.authors?.length ?? 0) > 0 || p.venue || p.year
+
 export const publicationCard = (p) => ({
   title: p.title,
-  citation: <Citation authors={p.authors} venue={p.venue} year={p.year} />,
+  citation: hasCitation(p) ? <Citation authors={p.authors} venue={p.venue} year={p.year} /> : null,
   status: p.status,
   fields: [
     ['Problem', p.problem],

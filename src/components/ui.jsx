@@ -50,6 +50,8 @@ const linkLabels = {
   report: ['Report', 'file'],
   slides: ['Slides', 'file'],
   video: ['Video', 'external'],
+  website: ['Website', 'external'],
+  wiki: ['Wiki', 'external'],
   poster: ['Poster', 'file'],
 }
 
@@ -119,8 +121,8 @@ export function EntryCard({ title, meta, citation, status, fields, links, to }) 
   const hover = to ? 'transition hover:border-teal-700 hover:shadow-md' : ''
   return (
     <article className={`relative rounded-xl border border-stone-200 bg-white p-6 sm:p-8 ${hover}`}>
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <div>
+      <div className="flex items-start justify-between gap-4">
+        <div className="min-w-0">
           <h2 className="font-serif text-xl font-semibold text-stone-900">
             {to ? (
               // The ::after overlay stretches this link over the whole card.

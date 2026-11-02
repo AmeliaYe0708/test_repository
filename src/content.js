@@ -4,9 +4,9 @@
 //  Anything in [square brackets] is a placeholder to replace.
 // ============================================================================
 
-// Files in /public are served from the site root:
-//   public/cv.pdf        -> replace with your real CV (keep the name cv.pdf)
-//   public/headshot.jpg  -> add your photo, then set `headshot` below
+// Paths below are relative to the /public folder:
+//   cv: 'CV_Linshan_Ye.pdf'          -> public/CV_Linshan_Ye.pdf
+//   headshot: 'files/headshot.png'   -> public/files/headshot.png
 export const profile = {
   name: 'Linshan Ye',
   // How your name appears in author lists — it gets bolded on the Publications page.
@@ -15,8 +15,8 @@ export const profile = {
   affiliation: 'Zhili College, Tsinghua University',
   affiliationUrl: 'https://www.zlc.tsinghua.edu.cn/EN/en.htm', // optional link to your department / lab
 
-  // Set to 'headshot.jpg' after adding public/headshot.jpg. Leave '' to show initials.
-  headshot: 'headshot.png',
+  // Path of your photo inside /public. Leave '' to show initials.
+  headshot: 'files/headshot.png',
 
   // ONE sentence: who you are as a researcher.
   identity:
@@ -80,9 +80,7 @@ export const publications = [
     approach: '[What did YOU do? Methods, systems built, experiments run.]',
     results: '[Concrete outcomes: numbers, findings, artifacts, your specific contributions.]',
     links: { arxiv: '', openreview: '', code: '' },
-    files: [
-      { label: 'Paper (PDF)', file: 'files/example-paper.pdf' },
-    ],
+    files: [],
   },
   {
     slug: 'publication-2',
@@ -97,7 +95,7 @@ export const publications = [
 // ----------------------------------------------------------------------------
 //  POSTERS & TALKS  (shown on the Publications page, below the papers)
 //  type: 'poster' | 'talk'   — use [] to hide the whole section
-//  links: any of poster, slides, video, pdf — leave '' to hide
+//  links: any of poster, slides, video, pdf, website — leave '' to hide
 // ----------------------------------------------------------------------------
 export const presentations = [
   {
@@ -109,7 +107,7 @@ export const presentations = [
     date: 'October 2024',
     summary: 'We isolated two phages targeting Eggerthella lenta and characterized their genomes, laying the groundwork for investigating phage-based modulation of the gut microbiome as a potential approach to depression.',
     files: [
-      { label: 'Poster (PDF)', file: 'files/Phage_therapy_targeting_Eggerthella_lenta_for_depression .pdf' },
+      { label: 'Poster (PDF)', file: 'files/poster-phage-eggerthella-lenta.pdf' },
     ],
   },
   {
@@ -121,7 +119,7 @@ export const presentations = [
     date: 'October 2025',
     summary: 'We modified an analgesic peptide and engineered probiotic bacteria for its production and extracellular release, exploring a synthetic biology approach to pain management.',
     files: [
-      { label: 'Poster (PDF)', file: 'files/L’amour_perdu.pdf' },
+      { label: 'Poster (PDF)', file: 'files/poster-analgesic-peptide.pdf' },
     ],
   },
   {
@@ -132,7 +130,7 @@ export const presentations = [
     location: 'Paris, France',
     date: 'October 2025',
     summary: 'We designed an innovative dual-microbe system to tackle this issue and produce high-value succinate. This system promises efficient vinasse decomposition while generating a valuable chemical, balancing environmental sustainability with economic benefit.',
-    links: { code: 'https://jamboree.igem.org/2025/schedule/5f25a51e-cd7d-4482-9c59-5da7b57a001b' }
+    links: { website: 'https://jamboree.igem.org/2025/schedule/5f25a51e-cd7d-4482-9c59-5da7b57a001b' }
   },
   {
     slug: 'talk-2',
@@ -147,7 +145,7 @@ export const presentations = [
 
 // ----------------------------------------------------------------------------
 //  PROJECTS  (course projects, shown on the Projects page)
-//  links: any of report, code, slides — leave '' to hide
+//  links: any of report, code, slides, website, wiki — leave '' to hide
 //  files: PDFs, PowerPoints, and pictures
 // ----------------------------------------------------------------------------
 export const projects = [
@@ -185,6 +183,6 @@ export const projects = [
     problem: 'The treatment of Baijiu vinasse, which contains hard-to-degrade carbon sources, is a significant environmental challenge.',
     contributions: 'I carried out genetic manipulation of acid-tolerant KT 2440 and, as student team and wet-lab leader, supervised wet-lab experiments and wiki writing.',
     conclusions: 'We designed an innovative dual-microbe system to tackle this issue and produce high-value succinate. This system promises efficient vinasse decomposition while generating a valuable chemical, balancing environmental sustainability with economic benefit.',
-    links: { code: 'https://2025.igem.wiki/tsinghua/' }
+    links: { wiki: 'https://2025.igem.wiki/tsinghua/' }
   },
 ]
