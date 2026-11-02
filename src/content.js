@@ -6,7 +6,7 @@
 
 // Paths below are relative to the /public folder:
 //   cv: 'CV_Linshan_Ye.pdf'          -> public/CV_Linshan_Ye.pdf
-//   headshot: 'files/headshot.png'   -> public/files/headshot.png
+//   headshot: 'files/headshot.jpg'   -> public/files/headshot.jpg
 export const profile = {
   name: 'Linshan Ye',
   // How your name appears in author lists — it gets bolded on the Publications page.
@@ -16,7 +16,7 @@ export const profile = {
   affiliationUrl: 'https://www.zlc.tsinghua.edu.cn/EN/en.htm', // optional link to your department / lab
 
   // Path of your photo inside /public. Leave '' to show initials.
-  headshot: 'files/headshot.png',
+  headshot: 'files/headshot.jpg',
 
   // ONE sentence: who you are as a researcher.
   identity:
@@ -124,7 +124,7 @@ export const presentations = [
   },
   {
     slug: 'talk-1',
-    title: 'DuCon：A Dual-microbe system for vinasse recycling through Conversion to succinate',
+    title: 'DuCon: A Dual-microbe system for vinasse recycling through Conversion to succinate',
     type: 'talk',
     event: 'iGEM 2025 Jamboree',
     location: 'Paris, France',
@@ -177,7 +177,7 @@ export const projects = [
   },
   {
     slug: 'project-3',
-    title: 'DuCon：A Dual-microbe system for vinasse recycling through Conversion to succinate',
+    title: 'DuCon: A Dual-microbe system for vinasse recycling through Conversion to succinate',
     course: 'Laboratory of Molecular Biology',
     term: 'Fall 2025',
     problem: 'The treatment of Baijiu vinasse, which contains hard-to-degrade carbon sources, is a significant environmental challenge.',
