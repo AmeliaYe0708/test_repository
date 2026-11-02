@@ -46,37 +46,41 @@ export const profile = {
 }
 
 // ----------------------------------------------------------------------------
-//  PROJECTS  (shown on the Projects page)
+//  PUBLICATIONS  (shown on the Publications page — listed first)
+//  authors: list in order; the one matching profile.citationName is bolded.
 //  status: 'published' | 'under-review' | 'ongoing'
-//  links: any of paper (PDF), arxiv, openreview, code, slides, poster — leave '' to hide
+//  links: any of pdf, arxiv, openreview, code, slides, poster — leave '' to hide
 // ----------------------------------------------------------------------------
-export const projects = [
+export const publications = [
   {
-    title: '[Project Title 1]',
+    title: '[Publication Title 1]',
+    authors: ['[A. Author]', '[Y. Name]', '[C. Author]'],
+    venue: '[Conference or Journal Name (ABBR)]',
+    year: '[2026]',
     status: 'published',
-    period: '[2025 – 2026]',
-    advisor: '[Advisor name, Lab]',
-    problem: '[What problem does this address, and why is it hard or important?]',
+    problem: '[What problem does this paper address, and why is it hard or important?]',
     approach: '[What did YOU do? Methods, systems built, experiments run.]',
     results: '[Concrete outcomes: numbers, findings, artifacts, your specific contributions.]',
-    links: { paper: '', arxiv: '', openreview: '', code: '' },
+    links: { pdf: '', arxiv: '', openreview: '', code: '' },
   },
   {
-    title: '[Project Title 2]',
+    title: '[Publication Title 2]',
+    authors: ['[Y. Name]', '[B. Author]'],
+    venue: '[arXiv preprint]',
+    year: '[2026]',
     status: 'under-review',
-    period: '[2025 – present]',
-    advisor: '',
-    problem: '[What problem does this address?]',
+    problem: '[What problem does this paper address?]',
     approach: '[What did you do?]',
     results: '[What came out of it?]',
-    links: { paper: '', arxiv: '', openreview: '', code: '' },
+    links: { pdf: '', arxiv: '', openreview: '', code: '' },
   },
   {
-    title: '[Project Title 3]',
+    title: '[Publication Title 3]',
+    authors: ['[Y. Name]', '[B. Author]', '[C. Author]'],
+    venue: '[Target venue / in preparation]',
+    year: '[2026]',
     status: 'ongoing',
-    period: '[2026 – present]',
-    advisor: '',
-    problem: '[What problem does this address?]',
+    problem: '[What problem does this work address?]',
     approach: '[What are you doing?]',
     results: '[Progress so far / expected contributions.]',
     links: { code: '' },
@@ -84,46 +88,26 @@ export const projects = [
 ]
 
 // ----------------------------------------------------------------------------
-//  PUBLICATIONS  (shown on the Publications page)
-//  authors: list in order; the one matching profile.citationName is bolded.
-//  status: optional note shown after the venue, e.g. 'Under review', 'To appear'
+//  PROJECTS  (course projects, shown on the Projects page)
+//  links: any of report (PDF), code, slides — leave '' to hide
 // ----------------------------------------------------------------------------
-export const publications = [
+export const projects = [
   {
-    authors: ['[A. Author]', '[Y. Name]', '[C. Author]'],
-    title: '[Paper Title]',
-    venue: '[Conference or Journal Name (ABBR)]',
-    year: '[2026]',
-    status: '',
-    links: { pdf: '', arxiv: '', openreview: '', code: '' },
+    title: '[Course Project Title 1]',
+    course: '[COURSE 101: Course Name]',
+    term: '[Fall 2025]',
+    problem: '[What problem did the project tackle?]',
+    contributions: '[What did you build, implement, or analyze? What was your part in a team?]',
+    conclusions: '[What did you find or learn? Key results or takeaways.]',
+    links: { report: '', code: '' },
   },
   {
-    authors: ['[Y. Name]', '[B. Author]'],
-    title: '[Paper Title]',
-    venue: '[arXiv preprint]',
-    year: '[2026]',
-    status: 'Under review',
-    links: { pdf: '', arxiv: '', openreview: '', code: '' },
-  },
-]
-
-// Conference posters and talks (optional — use [] to hide the section).
-// type: 'Poster' | 'Talk' | 'Oral' | 'Workshop' ...
-export const presentations = [
-  {
-    type: 'Poster',
-    title: '[Poster Title]',
-    event: '[Conference / Symposium Name]',
-    location: '[City]',
-    date: '[Month Year]',
-    links: { poster: '', slides: '' },
-  },
-  {
-    type: 'Talk',
-    title: '[Talk Title]',
-    event: '[Seminar / Workshop Name]',
-    location: '[City]',
-    date: '[Month Year]',
-    links: { poster: '', slides: '' },
+    title: '[Course Project Title 2]',
+    course: '[COURSE 202: Course Name]',
+    term: '[Spring 2026]',
+    problem: '[What problem did the project tackle?]',
+    contributions: '[What did you do?]',
+    conclusions: '[What did you conclude?]',
+    links: { report: '', code: '' },
   },
 ]

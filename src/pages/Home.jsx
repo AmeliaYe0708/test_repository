@@ -124,16 +124,16 @@ export default function Home() {
         <SectionHeading id="research">Research</SectionHeading>
         <div className="grid gap-5 sm:grid-cols-2">
           <NavCard
-            to="/projects"
-            title="Projects"
-            count={`${projects.length}`}
-            description="Research projects: the problem, my approach, results, and current status, with links to papers and code."
-          />
-          <NavCard
             to="/publications"
             title="Publications"
             count={`${publications.length}`}
-            description="Papers in formal citation format, plus conference posters and talks."
+            description="Papers with the problem, my approach, results, and status, plus links to PDFs and code."
+          />
+          <NavCard
+            to="/projects"
+            title="Projects"
+            count={`${projects.length}`}
+            description="Course projects: the problem, my contributions, and conclusions."
           />
         </div>
       </section>

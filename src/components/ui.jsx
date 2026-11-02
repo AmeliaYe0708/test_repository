@@ -46,6 +46,7 @@ const linkLabels = {
   arxiv: ['arXiv', 'external'],
   openreview: ['OpenReview', 'external'],
   code: ['Code', 'code'],
+  report: ['Report', 'file'],
   slides: ['Slides', 'file'],
   poster: ['Poster', 'file'],
 }
@@ -89,5 +90,54 @@ export function SectionHeading({ id, children, className = 'mb-5' }) {
     <h2 id={id} className={`${className} scroll-mt-24 font-serif text-2xl font-semibold text-stone-900`}>
       {children}
     </h2>
+  )
+}
+
+// ---------------------------------------------------------------------------
+// EntryCard: the card layout shared by Publications and Projects.
+// fields: [[label, text], ...] — rows with empty text are skipped.
+// ---------------------------------------------------------------------------
+const statusStyles = {
+  published: ['Published', 'bg-emerald-50 text-emerald-800 ring-emerald-200'],
+  'under-review': ['Under review', 'bg-amber-50 text-amber-800 ring-amber-200'],
+  ongoing: ['Ongoing', 'bg-sky-50 text-sky-800 ring-sky-200'],
+}
+
+function StatusBadge({ status }) {
+  if (!status) return null
+  const [label, cls] = statusStyles[status] ?? [status, 'bg-stone-100 text-stone-700 ring-stone-200']
+  return <span className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 ${cls}`}>{label}</span>
+}
+
+export function EntryCard({ title, meta, citation, status, fields, links }) {
+  const rows = fields.filter(([, text]) => text)
+  return (
+    <article className="rounded-xl border border-stone-200 bg-white p-6 sm:p-8">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h2 className="font-serif text-xl font-semibold text-stone-900">{title}</h2>
+          {citation && <p className="mt-1.5 text-sm leading-relaxed text-stone-600">{citation}</p>}
+          {meta && <p className="mt-1 text-sm text-stone-500">{meta}</p>}
+        </div>
+        <StatusBadge status={status} />
+      </div>
+
+      {rows.length > 0 && (
+        <dl className="mt-6 space-y-4">
+          {rows.map(([label, text]) => (
+            <div key={label} className="grid gap-1 sm:grid-cols-[7.5rem_1fr] sm:gap-4">
+              <dt className="text-xs font-semibold uppercase tracking-wider text-stone-500 sm:pt-0.5">{label}</dt>
+              <dd className="leading-relaxed text-stone-700">{text}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+
+      {Object.values(links ?? {}).some(Boolean) && (
+        <div className="mt-6 border-t border-stone-100 pt-5">
+          <LinkPills links={links} />
+        </div>
+      )}
+    </article>
   )
 }

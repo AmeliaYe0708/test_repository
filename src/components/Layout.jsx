@@ -21,8 +21,8 @@ export default function Layout() {
 
           <div className="hidden items-center gap-1 sm:flex">
             <NavLink to="/" end className={navClass}>About</NavLink>
-            <NavLink to="/projects" className={navClass}>Projects</NavLink>
             <NavLink to="/publications" className={navClass}>Publications</NavLink>
+            <NavLink to="/projects" className={navClass}>Projects</NavLink>
             <a
               href={asset(profile.cv)}
               target="_blank"
@@ -48,8 +48,8 @@ export default function Layout() {
         {open && (
           <div className="flex flex-col gap-1 border-t border-stone-200 px-4 py-3 sm:hidden" onClick={() => setOpen(false)}>
             <NavLink to="/" end className={navClass}>About</NavLink>
-            <NavLink to="/projects" className={navClass}>Projects</NavLink>
             <NavLink to="/publications" className={navClass}>Publications</NavLink>
+            <NavLink to="/projects" className={navClass}>Projects</NavLink>
             <a href={asset(profile.cv)} target="_blank" rel="noreferrer" className={navClass({})}>
               Download CV
             </a>
