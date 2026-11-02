@@ -8,11 +8,11 @@
 //   public/cv.pdf        -> replace with your real CV (keep the name cv.pdf)
 //   public/headshot.jpg  -> add your photo, then set `headshot` below
 export const profile = {
-  name: '[Your Full Name]',
+  name: 'Linshan Ye',
   // How your name appears in author lists — it gets bolded on the Publications page.
-  citationName: '[Y. Name]',
-  title: '[PhD Student / Undergraduate Researcher]',
-  affiliation: '[Department of Computer Science, University Name]',
+  citationName: '[Y. Linshan]',
+  title: 'Undergraduate Student',
+  affiliation: 'Zhili College, Tsinghua University',
   affiliationUrl: '', // optional link to your department / lab
 
   // Set to 'headshot.jpg' after adding public/headshot.jpg. Leave '' to show initials.
@@ -20,27 +20,26 @@ export const profile = {
 
   // ONE sentence: who you are as a researcher.
   identity:
-    '[I study how X can be made Y, focusing on Z.]',
+    'I work on AI for biology — building and fine-tuning models that help answer concrete biological questions.',
 
   // 2–3 sentences on SPECIFIC interests. Name the problems, methods, or settings.
   // Avoid empty statements like "I am very interested in AI".
   interests: [
-    '[Specific interest 1 — e.g. the concrete problem you work on and why it matters.]',
-    '[Specific interest 2 — e.g. the method or angle you take on it.]',
-    '[Optional interest 3 — e.g. an application domain or a direction you are moving toward.]',
+    'Developing and refining machine learning models for predicting and prioritizing biological macromolecules, closing the loop with wet-lab validation.',
+    'Building safer language models with respect to biosafety and copyright-sensitive settings through unlearning methods.',
   ],
 
   // Keywords shown as small tags under the interests (optional — use [] to hide).
-  keywords: ['[Keyword 1]', '[Keyword 2]', '[Keyword 3]'],
+  keywords: ['AI for science', 'Biological Data Science', 'AI safety'],
 
-  email: '[you@university.edu]', // prefer your institutional email
+  email: 'yls23@mails.tsinghua.edu.cn', // prefer your institutional email
   cv: 'cv.pdf',
-  cvLastUpdated: '[Month Year]',
+  cvLastUpdated: 'Nov 2026',
 
   links: {
     // Replace the placeholders below; set a link to '' to hide that row.
-    googleScholar: 'https://scholar.google.com/citations?user=[YOUR_ID]',
-    orcid: 'https://orcid.org/[0000-0000-0000-0000]',
+    googleScholar: 'placeholder',
+    orcid: 'https://orcid.org/0009-0005-4991-4684',
     github: 'https://github.com/AmeliaYe0708',
   },
 }
@@ -75,7 +74,7 @@ export const publications = [
     slug: 'publication-1',
     title: '[Publication Title 1]',
     authors: ['[A. Author]', '[Y. Name]', '[C. Author]'],
-    venue: '[Conference or Journal Name (ABBR)]',
+    venue: '[arXiv]',
     year: '[2026]',
     status: 'published',
     problem: '[What problem does this paper address, and why is it hard or important?]',
@@ -89,29 +88,11 @@ export const publications = [
   {
     slug: 'publication-2',
     title: '[Publication Title 2]',
-    authors: ['[Y. Name]', '[B. Author]'],
-    venue: '[arXiv preprint]',
-    year: '[2026]',
-    status: 'under-review',
+    year: '2026',
+    status: 'ongoing',
     problem: '[What problem does this paper address?]',
     approach: '[What did you do?]',
-    results: '[What came out of it?]',
-    links: { arxiv: '', openreview: '', code: '' },
-    files: [],
-  },
-  {
-    slug: 'publication-3',
-    title: '[Publication Title 3]',
-    authors: ['[Y. Name]', '[B. Author]', '[C. Author]'],
-    venue: '[Target venue / in preparation]',
-    year: '[2026]',
-    status: 'ongoing',
-    problem: '[What problem does this work address?]',
-    approach: '[What are you doing?]',
-    results: '[Progress so far / expected contributions.]',
-    links: { code: '' },
-    files: [],
-  },
+  }
 ]
 
 // ----------------------------------------------------------------------------
@@ -128,7 +109,6 @@ export const presentations = [
     location: '[City]',
     date: '[Month Year]',
     summary: '[One or two sentences on what was presented.]',
-    links: { video: '' },
     files: [
       { label: 'Poster (PDF)', file: 'files/example-poster.pdf' },
     ],
@@ -141,7 +121,6 @@ export const presentations = [
     location: '[City]',
     date: '[Month Year]',
     summary: '[One or two sentences on what was presented.]',
-    links: { video: '' },
     files: [],
   },
 ]
