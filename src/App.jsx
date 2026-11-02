@@ -4,11 +4,14 @@ import Layout from './components/Layout.jsx'
 import Home from './pages/Home.jsx'
 import Projects from './pages/Projects.jsx'
 import Publications from './pages/Publications.jsx'
+import Detail from './pages/Detail.jsx'
 import { profile } from './content.js'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
-  useEffect(() => window.scrollTo(0, 0), [pathname])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
   return null
 }
 
@@ -25,6 +28,8 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="projects" element={<Projects />} />
           <Route path="publications" element={<Publications />} />
+          <Route path="publications/:slug" element={<Detail section="publications" />} />
+          <Route path="projects/:slug" element={<Detail section="projects" />} />
           <Route path="*" element={<Home />} />
         </Route>
       </Routes>

@@ -109,8 +109,7 @@ export default function Home() {
             </a>
             <a
               href={asset(profile.cv)}
-              target="_blank"
-              rel="noreferrer"
+              download
               className="inline-flex items-center gap-2 rounded-lg bg-teal-800 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-teal-900"
             >
               <Icon name="download" /> Download CV (PDF)
@@ -140,28 +139,23 @@ export default function Home() {
 
       {/* ---------------- CV ---------------- */}
       <section>
-        <div className="mb-5 flex flex-wrap items-baseline justify-between gap-3">
-          <SectionHeading id="cv" className="mb-0">CV</SectionHeading>
-          <div className="flex items-center gap-4 text-sm">
-            <span className="text-stone-500">Last updated {profile.cvLastUpdated}</span>
-            <a href={asset(profile.cv)} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 font-medium text-teal-800 hover:underline">
-              <Icon name="external" /> Open in new tab
-            </a>
-          </div>
-        </div>
-        <div className="overflow-hidden rounded-xl border border-stone-200 bg-white">
-          <object data={asset(profile.cv)} type="application/pdf" className="hidden h-[80vh] w-full sm:block">
-            <p className="p-6 text-sm text-stone-600">
-              Your browser can't display the PDF inline.{' '}
-              <a href={asset(profile.cv)} className="text-teal-800 underline">Download the CV</a> instead.
-            </p>
-          </object>
-          {/* Phones generally can't render embedded PDFs, so show a link instead */}
-          <a href={asset(profile.cv)} target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 sm:hidden">
-            <span className="text-sm font-medium text-stone-800">View CV (PDF)</span>
-            <Icon name="arrow" className="h-4 w-4 text-teal-800" />
-          </a>
-        </div>
+        <SectionHeading id="cv">CV</SectionHeading>
+        <a
+          href={asset(profile.cv)}
+          download
+          className="group flex items-center justify-between gap-4 rounded-xl border border-stone-200 bg-white px-5 py-4 transition hover:border-teal-700"
+        >
+          <span className="flex items-center gap-4">
+            <Icon name="file" className="h-5 w-5 shrink-0 text-stone-500" />
+            <span>
+              <span className="block text-sm font-medium text-stone-900">Curriculum Vitae (PDF)</span>
+              <span className="block text-xs text-stone-500">Last updated {profile.cvLastUpdated}</span>
+            </span>
+          </span>
+          <span className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-800">
+            <Icon name="download" /> Download
+          </span>
+        </a>
       </section>
 
       {/* ---------------- Contact ---------------- */}

@@ -1,4 +1,5 @@
 // Small shared building blocks: icons, link pills, section headings.
+import { Link } from 'react-router-dom'
 
 export const asset = (file) => `${import.meta.env.BASE_URL}${file}`
 
@@ -97,6 +98,7 @@ export function SectionHeading({ id, children, className = 'mb-5' }) {
 // ---------------------------------------------------------------------------
 // EntryCard: the card layout shared by Publications and Projects.
 // fields: [[label, text], ...] — rows with empty text are skipped.
+// to: if given, the whole card links to that page (link buttons still work on their own).
 // ---------------------------------------------------------------------------
 const statusStyles = {
   published: ['Published', 'bg-emerald-50 text-emerald-800 ring-emerald-200'],
@@ -112,13 +114,23 @@ function StatusBadge({ status }) {
   return <span className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 ${cls}`}>{label}</span>
 }
 
-export function EntryCard({ title, meta, citation, status, fields, links }) {
+export function EntryCard({ title, meta, citation, status, fields, links, to }) {
   const rows = fields.filter(([, text]) => text)
+  const hover = to ? 'transition hover:border-teal-700 hover:shadow-md' : ''
   return (
-    <article className="rounded-xl border border-stone-200 bg-white p-6 sm:p-8">
+    <article className={`relative rounded-xl border border-stone-200 bg-white p-6 sm:p-8 ${hover}`}>
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h2 className="font-serif text-xl font-semibold text-stone-900">{title}</h2>
+          <h2 className="font-serif text-xl font-semibold text-stone-900">
+            {to ? (
+              // The ::after overlay stretches this link over the whole card.
+              <Link to={to} className="after:absolute after:inset-0 after:rounded-xl after:content-['']">
+                {title}
+              </Link>
+            ) : (
+              title
+            )}
+          </h2>
           {citation && <p className="mt-1.5 text-sm leading-relaxed text-stone-600">{citation}</p>}
           {meta && <p className="mt-1 text-sm text-stone-500">{meta}</p>}
         </div>
@@ -137,7 +149,7 @@ export function EntryCard({ title, meta, citation, status, fields, links }) {
       )}
 
       {Object.values(links ?? {}).some(Boolean) && (
-        <div className="mt-6 border-t border-stone-100 pt-5">
+        <div className="relative z-10 mt-6 border-t border-stone-100 pt-5">
           <LinkPills links={links} />
         </div>
       )}

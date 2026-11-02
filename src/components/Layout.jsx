@@ -25,8 +25,7 @@ export default function Layout() {
             <NavLink to="/projects" className={navClass}>Projects</NavLink>
             <a
               href={asset(profile.cv)}
-              target="_blank"
-              rel="noreferrer"
+              download
               className="ml-2 inline-flex items-center gap-1.5 rounded-md bg-teal-800 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-teal-900"
             >
               <Icon name="download" className="h-4 w-4" /> CV
@@ -50,7 +49,7 @@ export default function Layout() {
             <NavLink to="/" end className={navClass}>About</NavLink>
             <NavLink to="/publications" className={navClass}>Publications</NavLink>
             <NavLink to="/projects" className={navClass}>Projects</NavLink>
-            <a href={asset(profile.cv)} target="_blank" rel="noreferrer" className={navClass({})}>
+            <a href={asset(profile.cv)} download className={navClass({})}>
               Download CV
             </a>
           </div>

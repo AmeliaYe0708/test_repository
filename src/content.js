@@ -45,6 +45,25 @@ export const profile = {
   },
 }
 
+// ============================================================================
+//  HOW TO ADD FILES (PDFs, PowerPoints, pictures)
+//  1. Put the file in  public/files/  (e.g. public/files/my-paper.pdf).
+//  2. List it under that entry's `files`:  { label: 'Paper', file: 'files/my-paper.pdf' }
+//     The entry's page (opened by clicking its card) shows a preview frame
+//     for each file, with Open and Download buttons.
+//       .pdf               -> first page
+//       .png/.jpg/.webp    -> the top part of the picture that fits the frame
+//       .pptx/.ppt         -> Microsoft's slide viewer (only on the live site)
+//     Optional: add  preview: 'files/cover.png'  to show a different picture.
+//  3. Use spaces-free, lowercase file names (my-paper.pdf, not My Paper.pdf).
+//
+//  HOW TO ADD LINKS
+//  Fill in the `links` of an entry; empty ones ('') are hidden.
+//
+//  slug: the entry's page address, e.g. slug 'paper-1' -> #/publications/paper-1.
+//  Lowercase letters, numbers, and dashes; each slug must be unique.
+// ============================================================================
+
 // ----------------------------------------------------------------------------
 //  PUBLICATIONS  (shown on the Publications page — listed first)
 //  authors: list in order; the one matching profile.citationName is bolded.
@@ -53,6 +72,7 @@ export const profile = {
 // ----------------------------------------------------------------------------
 export const publications = [
   {
+    slug: 'publication-1',
     title: '[Publication Title 1]',
     authors: ['[A. Author]', '[Y. Name]', '[C. Author]'],
     venue: '[Conference or Journal Name (ABBR)]',
@@ -61,9 +81,13 @@ export const publications = [
     problem: '[What problem does this paper address, and why is it hard or important?]',
     approach: '[What did YOU do? Methods, systems built, experiments run.]',
     results: '[Concrete outcomes: numbers, findings, artifacts, your specific contributions.]',
-    links: { pdf: '', arxiv: '', openreview: '', code: '' },
+    links: { arxiv: '', openreview: '', code: '' },
+    files: [
+      { label: 'Paper (PDF)', file: 'files/example-paper.pdf' },
+    ],
   },
   {
+    slug: 'publication-2',
     title: '[Publication Title 2]',
     authors: ['[Y. Name]', '[B. Author]'],
     venue: '[arXiv preprint]',
@@ -72,9 +96,11 @@ export const publications = [
     problem: '[What problem does this paper address?]',
     approach: '[What did you do?]',
     results: '[What came out of it?]',
-    links: { pdf: '', arxiv: '', openreview: '', code: '' },
+    links: { arxiv: '', openreview: '', code: '' },
+    files: [],
   },
   {
+    slug: 'publication-3',
     title: '[Publication Title 3]',
     authors: ['[Y. Name]', '[B. Author]', '[C. Author]'],
     venue: '[Target venue / in preparation]',
@@ -84,6 +110,7 @@ export const publications = [
     approach: '[What are you doing?]',
     results: '[Progress so far / expected contributions.]',
     links: { code: '' },
+    files: [],
   },
 ]
 
@@ -94,46 +121,61 @@ export const publications = [
 // ----------------------------------------------------------------------------
 export const presentations = [
   {
+    slug: 'poster-1',
     title: '[Poster Title]',
     type: 'poster',
     event: '[Conference / Symposium Name]',
     location: '[City]',
     date: '[Month Year]',
     summary: '[One or two sentences on what was presented.]',
-    links: { poster: '', slides: '' },
+    links: { video: '' },
+    files: [
+      { label: 'Poster (PDF)', file: 'files/example-poster.pdf' },
+    ],
   },
   {
+    slug: 'talk-1',
     title: '[Talk Title]',
     type: 'talk',
     event: '[Seminar / Workshop Name]',
     location: '[City]',
     date: '[Month Year]',
     summary: '[One or two sentences on what was presented.]',
-    links: { poster: '', slides: '' },
+    links: { video: '' },
+    files: [],
   },
 ]
 
 // ----------------------------------------------------------------------------
 //  PROJECTS  (course projects, shown on the Projects page)
-//  links: any of report (PDF), code, slides — leave '' to hide
+//  links: any of report, code, slides — leave '' to hide
+//  files: PDFs, PowerPoints, and pictures
 // ----------------------------------------------------------------------------
 export const projects = [
   {
+    slug: 'project-1',
     title: '[Course Project Title 1]',
     course: '[COURSE 101: Course Name]',
     term: '[Fall 2025]',
     problem: '[What problem did the project tackle?]',
     contributions: '[What did you build, implement, or analyze? What was your part in a team?]',
     conclusions: '[What did you find or learn? Key results or takeaways.]',
-    links: { report: '', code: '' },
+    links: { code: '' },
+    files: [
+      { label: 'Final report', file: 'files/example-report.pdf' },
+      { label: 'Presentation slides', file: 'files/example-slides.pptx' },
+      { label: 'Results figure', file: 'files/example-figure.png' },
+    ],
   },
   {
+    slug: 'project-2',
     title: '[Course Project Title 2]',
     course: '[COURSE 202: Course Name]',
     term: '[Spring 2026]',
     problem: '[What problem did the project tackle?]',
     contributions: '[What did you do?]',
     conclusions: '[What did you conclude?]',
-    links: { report: '', code: '' },
+    links: { code: '' },
+    files: [],
   },
 ]
